@@ -1,0 +1,801 @@
+---
+title: "Projectttt"
+author: "Pandarinath"
+date: "2023-12-09"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+
+```{r}
+library(readxl)
+Data_Train <- read_excel("C:/Users/HP/Downloads/Data_Train.xlsx")
+View(Data_Train)
+```
+
+
+```{r}
+
+str(Data_Train)
+
+```
+
+
+##Total number of airlines
+
+
+```{r}
+
+# Get the frequency table for a categorical variable (replace "Airline" with your actual column name)
+table(Data_Train$Airline)
+```
+
+
+
+##Descriptive statistics on the dataset
+
+```{r}
+summary(Data_Train)
+
+```
+
+```{r}
+mean_price <- mean(Data_Train$Price)
+median_price <- median(Data_Train$Price)
+sd_price <- sd(Data_Train$Price)
+print(paste("The mean of flight price is",mean_price))
+
+print(paste("The Standard deviation of flight price is",sd_price))
+
+print(paste("The median of flight price is",median_price))
+
+t_test_result = t.test(Data_Train$Price, conf.level = 0.95)
+t_test_result
+
+```
+Importing datasets with same airlines
+```{r}
+library(readxl)
+output_tables_airasia <- read_excel("C:/Users/HP/Downloads/output_tables.xlsx", 
+    sheet = "Air Asia")
+View(output_tables_airasia)
+```
+
+```{r}
+library(readxl)
+output_tables_airindia <- read_excel("C:/Users/HP/Downloads/output_tables.xlsx", 
+    sheet = "Air India")
+View(output_tables_airindia)
+
+```
+
+```{r}
+library(readxl)
+output_tables_goair <- read_excel("C:/Users/HP/Downloads/output_tables.xlsx", 
+    sheet = "GoAir")
+View(output_tables_goair)
+
+```
+
+```{r}
+library(readxl)
+output_tables_indigo <- read_excel("C:/Users/HP/Downloads/output_tables.xlsx", 
+    sheet = "IndiGo")
+View(output_tables_indigo)
+```
+
+```{r}
+library(readxl)
+output_tables_jetairways <- read_excel("C:/Users/HP/Downloads/output_tables.xlsx", 
+    sheet = "Jet Airways")
+View(output_tables_jetairways)
+
+```
+
+```{r}
+library(readxl)
+output_tables_jetairwaysbusiness <- read_excel("C:/Users/HP/Downloads/output_tables.xlsx", 
+    sheet = "Jet Airways Business")
+View(output_tables_jetairwaysbusiness)
+
+```
+
+```{r}
+library(readxl)
+output_tables_multipleairways <- read_excel("C:/Users/HP/Downloads/output_tables.xlsx", 
+    sheet = "Multiple carriers")
+View(output_tables_multipleairways)
+
+```
+
+```{r}
+
+library(readxl)
+output_tables_multiplecarriers_premium <- read_excel("C:/Users/HP/Downloads/output_tables.xlsx", 
+    sheet = "Multiple carriers Premium econo")
+View(output_tables_multiplecarriers_premium)
+
+```
+
+```{r}
+library(readxl)
+output_tables_spicejet <- read_excel("C:/Users/HP/Downloads/output_tables.xlsx", 
+    sheet = "SpiceJet")
+View(output_tables_spicejet)
+```
+
+```{r}
+library(readxl)
+output_tables_vistara <- read_excel("C:/Users/HP/Downloads/output_tables.xlsx", 
+    sheet = "Vistara")
+View(output_tables_vistara)
+
+```
+
+
+
+##Mean,Median,Standard Deviation of Air asia Flight Prices
+```{r}
+mean_price_airasia = mean(output_tables_airasia$Price)
+median_price_airasia = median(output_tables_airasia$Price)
+sd_price_airasia = sd(output_tables_airasia$Price)
+
+print(paste("The mean of flight price is",mean_price_airasia))
+
+print(paste("The Standard deviation of flight price is",sd_price_airasia))
+
+print(paste("The median of flight price is",median_price_airasia))
+
+hist(output_tables_airasia$Price, main = "Flight Price Distribution", xlab = "Price")
+
+# Create a boxplot for the 'price' variable
+boxplot(output_tables_airasia$Price, main = "Flight Price Boxplot", ylab = "Price")
+
+t_test_airasia = t.test(output_tables_airasia$Price, conf.level = 0.95)
+t_test_airasia
+
+
+
+```
+##Mean,median,standard deviation of air india flight prices
+
+```{r}
+mean_price_airindia = mean(output_tables_airindia$Price)
+median_price_airindia = median(output_tables_airindia$Price)
+sd_price_airindia = sd(output_tables_airindia$Price)
+
+print(paste("The mean of flight price is",mean_price_airindia))
+
+print(paste("The Standard deviation of flight price is",sd_price_airindia))
+
+print(paste("The median of flight price is",median_price_airindia))
+
+hist(output_tables_airindia$Price, main = "Flight Price Distribution", xlab = "Price")
+
+# Create a boxplot for the 'price' variable
+boxplot(output_tables_airindia$Price, main = "Flight Price Boxplot", ylab = "Price")
+
+t_test_airindia = t.test(output_tables_airindia$Price, conf.level = 0.95)
+t_test_airindia
+```
+
+
+```{r}
+mean_price_goair = mean(output_tables_goair$Price)
+median_price_goair = median(output_tables_goair$Price)
+sd_price_goair = sd(output_tables_goair$Price)
+
+print(paste("The mean of flight price is",mean_price_goair))
+
+print(paste("The Standard deviation of flight price is",sd_price_goair))
+
+print(paste("The median of flight price is",median_price_goair))
+hist(output_tables_goair$Price, main = "Flight Price Distribution", xlab = "Price")
+
+# Create a boxplot for the 'price' variable
+boxplot(output_tables_goair$Price, main = "Flight Price Boxplot", ylab = "Price")
+
+t_test_goair = t.test(output_tables_goair$Price, conf.level = 0.95)
+t_test_goair
+
+```
+
+```{r}
+mean_price_indigo = mean(output_tables_indigo$Price)
+median_price_indigo = median(output_tables_indigo$Price)
+sd_price_indigo = sd(output_tables_indigo$Price)
+
+print(paste("The mean of flight price is",mean_price_indigo))
+
+print(paste("The Standard deviation of flight price is",sd_price_indigo))
+
+print(paste("The median of flight price is",median_price_indigo))
+
+hist(output_tables_indigo$Price, main = "Flight Price Distribution", xlab = "Price")
+
+# Create a boxplot for the 'price' variable
+boxplot(output_tables_indigo$Price, main = "Flight Price Boxplot", ylab = "Price")
+
+t_test_indigo = t.test(output_tables_indigo$Price, conf.level = 0.95)
+t_test_indigo
+```
+
+
+```{r}
+mean_price_jetairways = mean(output_tables_jetairways$Price)
+median_price_jetairways = median(output_tables_jetairways$Price)
+sd_price_jetairways = sd(output_tables_jetairways$Price)
+
+print(paste("The mean of flight price is",mean_price_jetairways))
+
+print(paste("The Standard deviation of flight price is",sd_price_jetairways))
+
+print(paste("The median of flight price is",median_price_jetairways))
+
+hist(output_tables_indigo$Price, main = "Flight Price Distribution", xlab = "Price")
+
+# Create a boxplot for the 'price' variable
+boxplot(output_tables_indigo$Price, main = "Flight Price Boxplot", ylab = "Price")
+
+t_test_jetairways = t.test(output_tables_jetairways$Price, conf.level = 0.95)
+t_test_jetairways
+
+```
+
+```{r}
+mean_price_jetbusiness = mean(output_tables_jetairwaysbusiness$Price)
+median_price_jetbusiness = median(output_tables_jetairwaysbusiness$Price)
+sd_price_jetbusiness = sd(output_tables_jetairwaysbusiness$Price)
+
+print(paste("The mean of flight price is",mean_price_jetbusiness))
+
+print(paste("The Standard deviation of flight price is",sd_price_jetbusiness))
+
+print(paste("The median of flight price is",median_price_jetbusiness))
+
+hist(output_tables_jetairwaysbusiness$Price, main = "Flight Price Distribution", xlab = "Price")
+
+# Create a boxplot for the 'price' variable
+boxplot(output_tables_jetairwaysbusiness$Price, main = "Flight Price Boxplot", ylab = "Price")
+
+t_test_jetairwaysbusiness = t.test(Data_Train$Price, conf.level = 0.95)
+t_test_jetairwaysbusiness
+```
+
+```{r}
+mean_price_multiplecarriers = mean(output_tables_multipleairways$Price)
+median_price_multipecarriers = median(output_tables_multipleairways$Price)
+sd_price_multiplecarriers = sd(output_tables_multipleairways$Price)
+
+print(paste("The mean of flight price is",mean_price_multiplecarriers))
+
+print(paste("The Standard deviation of flight price is",sd_price_multiplecarriers))
+
+print(paste("The median of flight price is",median_price_multipecarriers))
+
+hist(output_tables_multipleairways$Price, main = "Flight Price Distribution", xlab = "Price")
+
+# Create a boxplot for the 'price' variable
+boxplot(output_tables_multipleairways$Price, main = "Flight Price Boxplot", ylab = "Price")
+
+t_test_multiplecarriers = t.test(output_tables_multipleairways$Price, conf.level = 0.95)
+t_test_multiplecarriers
+```
+
+```{r}
+mean_price_mulprem = mean(output_tables_multiplecarriers_premium$Price)
+median_price_mulprem = median(output_tables_multiplecarriers_premium$Price)
+sd_price_mulprem = sd(output_tables_multiplecarriers_premium$Price)
+
+print(paste("The mean of flight price is",mean_price_mulprem))
+
+print(paste("The Standard deviation of flight price is",sd_price_mulprem))
+
+print(paste("The median of flight price is",median_price_mulprem))
+
+hist(output_tables_multiplecarriers_premium$Price, main = "Flight Price Distribution", xlab = "Price")
+
+# Create a boxplot for the 'price' variable
+boxplot(output_tables_multiplecarriers_premium$Price, main = "Flight Price Boxplot", ylab = "Price")
+
+t_test_mulprem = t.test(output_tables_multiplecarriers_premium$Price, conf.level = 0.95)
+t_test_mulprem
+```
+
+
+```{r}
+mean_price_spicejet = mean(output_tables_spicejet$Price)
+median_price_spicejet = median(output_tables_spicejet$Price)
+sd_price_spicejet = sd(output_tables_spicejet$Price)
+
+print(paste("The mean of flight price is",mean_price_spicejet))
+
+print(paste("The Standard deviation of flight price is",sd_price_spicejet))
+
+print(paste("The median of flight price is",median_price_spicejet))
+
+hist(output_tables_spicejet$Price, main = "Flight Price Distribution", xlab = "Price")
+
+# Create a boxplot for the 'price' variable
+boxplot(output_tables_spicejet$Price, main = "Flight Price Boxplot", ylab = "Price")
+
+t_test_spicejet = t.test(output_tables_spicejet$Price, conf.level = 0.95)
+t_test_spicejet
+```
+
+```{r}
+mean_price_vistara = mean(output_tables_vistara$Price)
+median_price_vistara = median(output_tables_vistara$Price)
+sd_price_vistara = sd(output_tables_vistara$Price)
+
+print(paste("The mean of flight price is",mean_price_vistara))
+
+print(paste("The Standard deviation of flight price is",sd_price_vistara))
+
+print(paste("The median of flight price is",median_price_vistara))
+
+hist(output_tables_vistara$Price, main = "Flight Price Distribution", xlab = "Price")
+
+# Create a boxplot for the 'price' variable
+boxplot(output_tables_vistara$Price, main = "Flight Price Boxplot", ylab = "Price")
+
+t_test_vistara = t.test(output_tables_vistara$Price, conf.level = 0.95)
+t_test_vistara
+
+```
+
+
+
+```{r}
+# Assuming your data frame is named Data_Train
+Data_Train$Duration <- as.character(Data_Train$Duration)
+
+# Extract hours and minutes
+hours <- as.numeric(substring(Data_Train$Duration, 1, regexpr("h", Data_Train$Duration) - 1))
+minutes <- as.numeric(substring(Data_Train$Duration, regexpr(" ", Data_Train$Duration) + 1, nchar(Data_Train$Duration) - 1))
+
+# Calculate total duration in minutes
+total_minutes <- hours * 60 + minutes
+
+# Replace the original 'Duration' column with the new numeric column
+Data_Train$Duration <- total_minutes
+
+
+```
+
+
+```{r}
+sum(is.na(Data_Train$Price))
+sum(is.na(Data_Train$Duration))
+
+```
+
+```{r}
+Data_Train <- na.omit(Data_Train)
+
+```
+
+
+```{r}
+
+cov(Data_Train$Price, Data_Train$Duration)
+```
+
+```{r}
+cor(Data_Train$Price, as.numeric(Data_Train$Duration), use = "complete.obs")
+
+```
+
+
+##Hypothesis testing 
+null hypothesis: mean prices for short duration flights are equal to mean prices for long duration flights.
+alternative hypothesis: mean prices for short duration flights are different from mean prices for long duration flights.
+t
+$H_0: \mu=9000$  
+$H_a: \mu \neq 9000$ 
+```{r}
+# Example: Z-test with known population standard deviation
+library(TeachingDemos)
+result_allairlines = z.test(Data_Train$Price, mu = 9000, sd_price, alternative = "two.sided")
+
+
+result_allairlines
+```
+
+```{r}
+hist(Data_Train$Price, main = "Histogram of Flight Prices", xlab = "Price", col = "lightblue")
+```
+```{r}
+install.packages("ggplot2")
+
+```
+```{r}
+# Assuming you have the necessary libraries installed
+library(ggplot2)
+
+# Your hypothesis testing output
+test_result <- list(
+  mean = 9086.443,
+  std_dev = 44.619,
+  p_value = 0.0527,
+  conf_interval = c(8998.991, 9173.895)
+)
+
+# Create a histogram
+histogram <- ggplot(Data_Train, aes(x = Price)) +
+  geom_histogram(binwidth = 500) +  # Adjust binwidth as needed
+  labs(title = "Flight Price Distribution") +
+  xlab("Price") +
+  ylab("Frequency")
+
+# Add mean and confidence interval
+histogram <- histogram +
+  geom_vline(xintercept = test_result$mean, color = "red", linetype = "dashed", size = 1) +
+  geom_text(aes(x = test_result$mean, y = 0, label = "Mean"), vjust = -0.5, color = "red") +
+  geom_errorbar(aes(x = (test_result$conf_interval[1] + test_result$conf_interval[2]) / 2,
+                    ymin = -Inf, ymax = Inf),
+                width = 500, color = "blue", size = 1, alpha = 0.5) +
+  geom_rect(xmin = test_result$conf_interval[1], xmax = test_result$conf_interval[2],
+            ymin = 0, ymax = Inf, fill = "gray", alpha = 0.3)
+
+# Display the plot
+print(histogram)
+
+```
+
+
+
+##Linear regression
+
+##To check summary statistics
+```{r}
+summary(Data_Train)
+
+```
+##Predicting flight prices based on duration,total number of stops
+
+```{r}
+# Example: Convert Total_Stops to numeric
+Data_Train$Total_Stops <- as.numeric(factor(Data_Train$Total_Stops, levels = c("non-stop", "1 stop", "2 stops", "3 stops", "4 stops")))
+
+```
+
+##Implementing the model
+```{r}
+# Example: Using lm() function for linear regression
+model <- lm(Price ~ Duration + Total_Stops, data = Data_Train)
+model
+
+```
+##Converting duration and totalstops to numeric in all airlines data
+
+```{r}
+# Assuming your data frame is named Data_Train
+output_tables_airasia$Duration <- as.character(output_tables_airasia$Duration)
+
+# Extract hours and minutes
+hours <- as.numeric(substring(output_tables_airasia$Duration, 1, regexpr("h", output_tables_airasia$Duration) - 1))
+minutes <- as.numeric(substring(output_tables_airasia$Duration, regexpr(" ", output_tables_airasia$Duration) + 1, nchar(output_tables_airasia$Duration) - 1))
+
+# Calculate total duration in minutes
+total_minutes <- hours * 60 + minutes
+
+# Replace the original 'Duration' column with the new numeric column
+output_tables_airasia$Duration <- total_minutes
+
+
+output_tables_airasia <- na.omit(output_tables_airasia)
+
+
+
+
+```
+
+
+```{r}
+# Example: Convert Total_Stops to numeric
+output_tables_airasia$Total_Stops <- as.numeric(factor(output_tables_airasia$Total_Stops, levels = c("non-stop", "1 stop", "2 stops", "3 stops", "4 stops")))
+```
+##Implementing model for airasia
+```{r}
+# Example: Using lm() function for linear regression
+model <- lm(Price ~ Duration + Total_Stops, data = output_tables_airasia)
+model
+
+```
+
+
+```{r}
+# Assuming your data frame is named Data_Train
+output_tables_airindia$Duration <- as.character(output_tables_airindia$Duration)
+
+# Extract hours and minutes
+hours <- as.numeric(substring(output_tables_airindia$Duration, 1, regexpr("h", output_tables_airindia$Duration) - 1))
+minutes <- as.numeric(substring(output_tables_airindia$Duration, regexpr(" ", output_tables_airindia$Duration) + 1, nchar(output_tables_airindia$Duration) - 1))
+
+# Calculate total duration in minutes
+total_minutes <- hours * 60 + minutes
+
+# Replace the original 'Duration' column with the new numeric column
+output_tables_airindia$Duration <- total_minutes
+
+
+output_tables_airindia <- na.omit(output_tables_airindia)
+
+```
+
+
+```{r}
+# Example: Convert Total_Stops to numeric
+output_tables_airindia$Total_Stops <- as.numeric(factor(output_tables_airindia$Total_Stops, levels = c("non-stop", "1 stop", "2 stops", "3 stops", "4 stops")))
+```
+
+##Implementing model for airindia
+```{r}
+# Example: Using lm() function for linear regression
+model <- lm(Price ~ Duration + Total_Stops, data = output_tables_airindia)
+model
+```
+```{r}
+# Assuming your data frame is named Data_Train
+output_tables_goair$Duration <- as.character(output_tables_goair$Duration)
+
+# Extract hours and minutes
+hours <- as.numeric(substring(output_tables_goair$Duration, 1, regexpr("h", output_tables_goair$Duration) - 1))
+minutes <- as.numeric(substring(output_tables_goair$Duration, regexpr(" ", output_tables_goair$Duration) + 1, nchar(output_tables_goair$Duration) - 1))
+
+# Calculate total duration in minutes
+total_minutes <- hours * 60 + minutes
+
+# Replace the original 'Duration' column with the new numeric column
+output_tables_goair$Duration <- total_minutes
+
+
+output_tables_goair <- na.omit(output_tables_goair)
+
+
+```
+
+```{r}
+# Example: Convert Total_Stops to numeric
+output_tables_goair$Total_Stops <- as.numeric(factor(output_tables_goair$Total_Stops, levels = c("non-stop", "1 stop", "2 stops", "3 stops", "4 stops")))
+
+```
+
+##Impleenting model for goair
+```{r}
+# Example: Using lm() function for linear regression
+model <- lm(Price ~ Duration + Total_Stops, data = output_tables_goair)
+model
+
+```
+```{r}
+# Assuming your data frame is named Data_Train
+output_tables_indigo$Duration <- as.character(output_tables_indigo$Duration)
+
+# Extract hours and minutes
+hours <- as.numeric(substring(output_tables_indigo$Duration, 1, regexpr("h", output_tables_indigo$Duration) - 1))
+minutes <- as.numeric(substring(output_tables_indigo$Duration, regexpr(" ", output_tables_indigo$Duration) + 1, nchar(output_tables_indigo$Duration) - 1))
+
+# Calculate total duration in minutes
+total_minutes <- hours * 60 + minutes
+
+# Replace the original 'Duration' column with the new numeric column
+output_tables_indigo$Duration <- total_minutes
+
+
+output_tables_indigo <- na.omit(output_tables_indigo)
+
+
+
+```
+
+```{r}
+# Example: Convert Total_Stops to numeric
+output_tables_indigo$Total_Stops <- as.numeric(factor(output_tables_indigo$Total_Stops, levels = c("non-stop", "1 stop", "2 stops", "3 stops", "4 stops")))
+```
+
+##Implementing model for indigo
+
+```{r}
+# Example: Using lm() function for linear regression
+model <- lm(Price ~ Duration + Total_Stops, data = output_tables_indigo)
+model
+```
+
+```{r}
+# Assuming your data frame is named Data_Train
+output_tables_jetairways$Duration <- as.character(output_tables_jetairways$Duration)
+
+# Extract hours and minutes
+hours <- as.numeric(substring(output_tables_jetairways$Duration, 1, regexpr("h", output_tables_jetairways$Duration) - 1))
+minutes <- as.numeric(substring(output_tables_jetairways$Duration, regexpr(" ", output_tables_jetairways$Duration) + 1, nchar(output_tables_jetairways$Duration) - 1))
+
+# Calculate total duration in minutes
+total_minutes <- hours * 60 + minutes
+
+# Replace the original 'Duration' column with the new numeric column
+output_tables_jetairways$Duration <- total_minutes
+
+
+output_tables_jetairways <- na.omit(output_tables_jetairways)
+
+```
+
+```{r}
+# Example: Convert Total_Stops to numeric
+output_tables_jetairways$Total_Stops <- as.numeric(factor(output_tables_jetairways$Total_Stops, levels = c("non-stop", "1 stop", "2 stops", "3 stops", "4 stops")))
+```
+
+##Implementing model for jet airways
+```{r}
+# Example: Using lm() function for linear regression
+model <- lm(Price ~ Duration + Total_Stops, data = output_tables_jetairways)
+model
+```
+```{r}
+# Assuming your data frame is named Data_Train
+output_tables_jetairwaysbusiness$Duration <- as.character(output_tables_jetairwaysbusiness$Duration)
+
+# Extract hours and minutes
+hours <- as.numeric(substring(output_tables_jetairwaysbusiness$Duration, 1, regexpr("h", output_tables_jetairwaysbusiness$Duration) - 1))
+minutes <- as.numeric(substring(output_tables_jetairwaysbusiness$Duration, regexpr(" ", output_tables_jetairwaysbusiness$Duration) + 1, nchar(output_tables_jetairwaysbusiness$Duration) - 1))
+
+# Calculate total duration in minutes
+total_minutes <- hours * 60 + minutes
+
+# Replace the original 'Duration' column with the new numeric column
+output_tables_jetairwaysbusiness$Duration <- total_minutes
+
+
+output_tables_jetairwaysbusiness <- na.omit(output_tables_jetairwaysbusiness)
+
+```
+
+```{r}
+# Example: Convert Total_Stops to numeric
+output_tables_jetairwaysbusiness$Total_Stops <- as.numeric(factor(output_tables_jetairwaysbusiness$Total_Stops, levels = c("non-stop", "1 stop", "2 stops", "3 stops", "4 stops")))
+```
+
+
+##Implementing model for jetairways business
+```{r}
+# Example: Using lm() function for linear regression
+model <- lm(Price ~ Duration + Total_Stops, data = output_tables_jetairwaysbusiness)
+model
+```
+
+
+```{r}
+# Assuming your data frame is named Data_Train
+output_tables_multipleairways$Duration <- as.character(output_tables_multipleairways$Duration)
+
+# Extract hours and minutes
+hours <- as.numeric(substring(output_tables_multipleairways$Duration, 1, regexpr("h", output_tables_multipleairways$Duration) - 1))
+minutes <- as.numeric(substring(output_tables_multipleairways$Duration, regexpr(" ", output_tables_multipleairways$Duration) + 1, nchar(output_tables_multipleairways$Duration) - 1))
+
+# Calculate total duration in minutes
+total_minutes <- hours * 60 + minutes
+
+# Replace the original 'Duration' column with the new numeric column
+output_tables_multipleairways$Duration <- total_minutes
+
+
+output_tables_multipleairways <- na.omit(output_tables_multipleairways)
+
+
+```
+
+```{r}
+# Example: Convert Total_Stops to numeric
+output_tables_multipleairways$Total_Stops <- as.numeric(factor(output_tables_multipleairways$Total_Stops, levels = c("non-stop", "1 stop", "2 stops", "3 stops", "4 stops")))
+
+```
+
+
+#Implementing model for multiple carriers
+
+```{r}
+# Example: Using lm() function for linear regression
+model <- lm(Price ~ Duration + Total_Stops, data = output_tables_multipleairways)
+model
+```
+```{r}
+# Assuming your data frame is named Data_Train
+output_tables_multiplecarriers_premium$Duration <- as.character(output_tables_multiplecarriers_premium$Duration)
+
+# Extract hours and minutes
+hours <- as.numeric(substring(output_tables_multiplecarriers_premium$Duration, 1, regexpr("h", output_tables_multiplecarriers_premium$Duration) - 1))
+minutes <- as.numeric(substring(output_tables_multiplecarriers_premium$Duration, regexpr(" ", output_tables_multiplecarriers_premium$Duration) + 1, nchar(output_tables_multiplecarriers_premium$Duration) - 1))
+
+# Calculate total duration in minutes
+total_minutes <- hours * 60 + minutes
+
+# Replace the original 'Duration' column with the new numeric column
+output_tables_multiplecarriers_premium$Duration <- total_minutes
+
+
+output_tables_multiplecarriers_premium <- na.omit(output_tables_multiplecarriers_premium)
+
+
+```
+
+```{r}
+output_tables_multiplecarriers_premium$Total_Stops <- as.numeric(factor(output_tables_multiplecarriers_premium$Total_Stops, levels = c("non-stop", "1 stop", "2 stops", "3 stops", "4 stops")))
+```
+
+##Implementing model for multiple carriers premium
+
+```{r}
+# Example: Using lm() function for linear regression
+model <- lm(Price ~ Duration + Total_Stops, data = output_tables_multiplecarriers_premium)
+model
+```
+
+```{r}
+# Assuming your data frame is named Data_Train
+output_tables_spicejet$Duration <- as.character(output_tables_spicejet$Duration)
+
+# Extract hours and minutes
+hours <- as.numeric(substring(output_tables_spicejet$Duration, 1, regexpr("h", output_tables_spicejet$Duration) - 1))
+minutes <- as.numeric(substring(output_tables_spicejet$Duration, regexpr(" ", output_tables_spicejet$Duration) + 1, nchar(output_tables_spicejet$Duration) - 1))
+
+# Calculate total duration in minutes
+total_minutes <- hours * 60 + minutes
+
+# Replace the original 'Duration' column with the new numeric column
+output_tables_spicejet$Duration <- total_minutes
+
+
+output_tables_spicejet <- na.omit(output_tables_spicejet)
+
+
+```
+
+```{r}
+output_tables_spicejet$Total_Stops <- as.numeric(factor(output_tables_spicejet$Total_Stops, levels = c("non-stop", "1 stop", "2 stops", "3 stops", "4 stops")))
+```
+
+##Implementing model for sicejet
+
+```{r}
+model <- lm(Price ~ Duration + Total_Stops, data = output_tables_spicejet)
+model
+```
+```{r}
+# Assuming your data frame is named Data_Train
+output_tables_vistara$Duration <- as.character(output_tables_vistara$Duration)
+
+# Extract hours and minutes
+hours <- as.numeric(substring(output_tables_vistara$Duration, 1, regexpr("h", output_tables_vistara$Duration) - 1))
+minutes <- as.numeric(substring(output_tables_vistara$Duration, regexpr(" ", output_tables_vistara$Duration) + 1, nchar(output_tables_vistara$Duration) - 1))
+
+# Calculate total duration in minutes
+total_minutes <- hours * 60 + minutes
+
+# Replace the original 'Duration' column with the new numeric column
+output_tables_vistara$Duration <- total_minutes
+
+
+output_tables_vistara <- na.omit(output_tables_vistara)
+
+
+
+```
+
+
+```{r}
+output_tables_vistara$Total_Stops <- as.numeric(factor(output_tables_vistara$Total_Stops, levels = c("non-stop", "1 stop", "2 stops", "3 stops", "4 stops")))
+```
+
+##Implementing model for vistara
+
+```{r}
+model <- lm(Price ~ Duration + Total_Stops, data = output_tables_vistara)
+model
+```
+
